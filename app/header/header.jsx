@@ -5,7 +5,7 @@ export const Header = () => {
   return (
     <header className="flex w-full items-center py-4">
       <ReactSvg size={32} />
-      <h1 className="inline-flex items-center gap-2 text-lg font-bold">
+      <h1 className="inline-flex items-center gap-2 text-lg font-bold text-black">
         ReactJourney
       </h1>
       <HeaderRight />
