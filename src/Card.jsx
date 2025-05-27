@@ -5,24 +5,25 @@ import Link from "next/link";
 import { Button } from "./header/button";
 import { ReactSvg } from "./header/reactsvg";
 
-export const CardFilters = ({ currentFilter }) => {
+export const Card = ({ currentFilter }) => {
   return (
     <>
-      {REACT_CARDS.filter((card) => card.category === currentFilter).map(
-        (card) => (
-          <Card
-            key={Math.random}
-            cardName={card.name}
-            cardCategory={card.category}
-            cardUrl={card.url}
-          />
-        )
-      )}
+      {REACT_CARDS.filter((card) =>
+        currentFilter === "" ? true : card.category === currentFilter
+      ).map((card) => (
+        <CardItem
+          key={card.name}
+          cardName={card.name}
+          cardCategory={card.category}
+          cardUrl={card.url}
+          currentFilter={currentFilter}
+        />
+      ))}
     </>
   );
 };
 
-const Card = ({ cardName, cardCategory, cardUrl }) => {
+const CardItem = ({ cardName, cardCategory, cardUrl, currentFilter }) => {
   return (
     <div className="flex flex-col items-center justify-center gap-4 rounded-lg border p-4 shadow transition-colors hover:border-gray-300 hover:bg-gray-100">
       <div className="flex w-full items-center gap-2">
@@ -33,7 +34,10 @@ const Card = ({ cardName, cardCategory, cardUrl }) => {
         {cardName}
       </p>
       <div className="flex w-full items-center gap-2">
-        <p className="line-clamp-1 text-start text-xs text-gray-400 ">
+        <p
+          className="line-clamp-1 text-start text-xs text-gray-400"
+          hidden={currentFilter != ""}
+        >
           {cardCategory}
         </p>
         <Link
