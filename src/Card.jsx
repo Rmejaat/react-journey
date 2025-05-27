@@ -1,9 +1,28 @@
+import { REACT_CARDS } from "@/src/react-cards";
 import { BookOpenText, PlusCircle } from "lucide-react";
+import {} from "module";
 import Link from "next/link";
 import { Button } from "./header/button";
 import { ReactSvg } from "./header/reactsvg";
 
-export const Card = ({ cardName, cardCategory, cardUrl }) => {
+export const CardFilters = ({ currentFilter }) => {
+  return (
+    <>
+      {REACT_CARDS.filter((card) => card.category === currentFilter).map(
+        (card) => (
+          <Card
+            key={Math.random}
+            cardName={card.name}
+            cardCategory={card.category}
+            cardUrl={card.url}
+          />
+        )
+      )}
+    </>
+  );
+};
+
+const Card = ({ cardName, cardCategory, cardUrl }) => {
   return (
     <div className="flex flex-col items-center justify-center gap-4 rounded-lg border p-4 shadow transition-colors hover:border-gray-300 hover:bg-gray-100">
       <div className="flex w-full items-center gap-2">

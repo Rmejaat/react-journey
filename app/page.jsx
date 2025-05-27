@@ -1,4 +1,4 @@
-import { Card } from "@/src/Card";
+import { CardFilters } from "@/src/Card";
 import { Menu } from "@/src/menu/menu";
 import { REACT_CARDS } from "@/src/react-cards";
 import { Header } from "../src/header/header";
@@ -17,13 +17,7 @@ export default async function Home({ searchParams }) {
         <Menu currentFilter={currentFilter} filters={filters} />
         <div className="size-full overflow-auto">
           <div className="grid h-fit w-full grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {REACT_CARDS.map((card) => (
-              <Card
-                cardName={card.name}
-                cardCategory={card.category}
-                cardUrl={card.url}
-              />
-            ))}
+            <CardFilters currentFilter={currentFilter} />
           </div>
         </div>
       </div>
