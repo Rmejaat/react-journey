@@ -17,7 +17,13 @@ export default async function Home({ searchParams }) {
         <Menu currentFilter={currentFilter} filters={filters} />
         <div className="size-full overflow-auto">
           <div className="grid h-fit w-full grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-            <Card />
+            {REACT_CARDS.map((card) => (
+              <Card
+                cardName={card.name}
+                cardCategory={card.category}
+                cardUrl={card.url}
+              />
+            ))}
           </div>
         </div>
       </div>
