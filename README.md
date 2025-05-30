@@ -1,3 +1,5 @@
+React Journey : WorkShop #1
+
 ## Getting Started
 
 First, run the development server:
